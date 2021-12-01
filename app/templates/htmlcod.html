@@ -1,0 +1,56 @@
+<head>
+<meta charset="UTF-8">
+<title>User Information Form</title>
+</head>
+<body>
+<form action="" method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="Submit" name="submit" value="Submit"/>
+</form>
+<h1>Сводка курса акций</h1>
+<table>
+     <tr>
+         <th>Name</th>
+         <th>stock_price</th>
+     </tr>
+ <tr>
+     {% for mt in stock_results %}
+     <td>{{mt.name}}</td>
+     <td>{{mt.stock_price}}</td>
+ </tr>
+     {% endfor %}
+</table>
+
+{% if submitbutton == "Submit" %}
+<h1>Фундаментальные показатели {{ text }}</h1>
+ {% if query_results %}
+ <h3>{{form}}</h3>
+ <table>
+     <tr>
+         <th>id</th>
+         <th>price_profit</th>
+         <th>price_sales</th>
+         <th>price_cashflow</th>
+         <th>price_book_value</th>
+         <th>price_ebidta</th>
+         <th>Name</th>
+     </tr>
+ <tr>
+     {% for st in query_results %}
+     <td>{{st.id}}</td>
+     <td>{{st.price_profit}}</td>
+     <td>{{st.price_sales}}</td>
+     <td>{{st.price_cashflow}}</td>
+     <td>{{st.price_book_value}}</td>
+     <td>{{st.price_ebidta}}</td>
+     <td>{{st.name}}</td>
+ </tr>
+     {% endfor %}
+</table>
+{% else %}
+ <h1>No Data</h1>
+{% endif %}
+{% endif %}
+
+</body>
