@@ -35,6 +35,7 @@
          <th>price_book_value</th>
          <th>price_ebidta</th>
          <th>Name</th>
+         <th>potential_future_price</th>
      </tr>
  <tr>
      {% for st in query_results %}
@@ -45,6 +46,7 @@
      <td>{{st.price_book_value}}</td>
      <td>{{st.price_ebidta}}</td>
      <td>{{st.name}}</td>
+     <td>{{st.potential_future_price}}</td>
  </tr>
      {% endfor %}
 </table>
