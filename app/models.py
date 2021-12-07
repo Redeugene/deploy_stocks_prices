@@ -8,6 +8,7 @@ class stock_params(models.Model):
  price_book_value = models.DecimalField(max_digits=10, decimal_places=2)
  price_ebidta = models.DecimalField(max_digits=10, decimal_places=2)
  name = models.CharField(max_length=10)
+ potential_future_price = models.DecimalField(max_digits=10, decimal_places=2)
 
 class stock_price(models.Model):
  name = models.CharField(max_length=10)
